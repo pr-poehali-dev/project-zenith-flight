@@ -140,7 +140,7 @@ export default function Index() {
               Хронология
             </a>
             <a href="#about" className="text-sm uppercase tracking-widest hover:text-red-600 transition-colors">
-              О проекте
+              Развитие угроз
             </a>
             <a href="#sources" className="text-sm uppercase tracking-widest hover:text-red-600 transition-colors">
               Источники
@@ -295,7 +295,7 @@ export default function Index() {
               </div>
             </div>
             <div className="col-span-12 md:col-span-8 md:pt-4">
-              <p className="text-xl mb-8 leading-relaxed">
+              <p className="mb-6 leading-relaxed">
                 История вредоносных программ начиналась как академический курьёз. В 1971 году программист Боб Томас создал Creeper — не с целью разрушения, а ради самого факта: может ли программа самостоятельно перемещаться между компьютерами? Может. Этот эксперимент открыл ящик Пандоры, который человечество не может закрыть по сей день.
               </p>
               <p className="mb-6 leading-relaxed">
@@ -310,7 +310,7 @@ export default function Index() {
               <p className="mb-6 leading-relaxed">
                 Stuxnet (2010) перевернул представления о возможном: впервые вредоносная программа уничтожила физическое оборудование — иранские ядерные центрифуги. Кибератаки стали инструментом геополитики. WannaCry и NotPetya (2017) парализовали целые отрасли экономики в десятках стран одновременно.
               </p>
-              <p className="leading-relaxed">
+              <p className="mb-6 leading-relaxed">
                 Сегодня мы стоим на пороге новой эпохи: искусственный интеллект используется обеими сторонами. ИИ генерирует полиморфный код, который меняет себя быстрее, чем успевают обновляться сигнатурные базы. ИИ-антивирусы учатся предсказывать атаки до их начала. Гонка вооружений продолжается — теперь со скоростью нейронных сетей.
               </p>
             </div>
