@@ -142,6 +142,9 @@ export default function Index() {
             <a href="#about" className="text-sm uppercase tracking-widest hover:text-red-600 transition-colors">
               Развитие угроз
             </a>
+            <a href="#defense" className="text-sm uppercase tracking-widest hover:text-red-600 transition-colors">
+              Методы защиты
+            </a>
             <a href="#sources" className="text-sm uppercase tracking-widest hover:text-red-600 transition-colors">
               Источники
             </a>
@@ -394,6 +397,141 @@ export default function Index() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Defense Methods Section */}
+      <section id="defense" className="py-20 px-4 md:px-8 bg-black text-white overflow-hidden">
+        <div className="container mx-auto">
+
+          {/* Header */}
+          <div className="relative mb-16">
+            <div className="absolute inset-0 opacity-5 pointer-events-none">
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className="absolute top-0 bottom-0 border-l border-white" style={{ left: `${(i + 1) * 100 / 7}%` }} />
+              ))}
+            </div>
+            <div className="relative">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-4 h-4 border-t-2 border-l-2 border-neutral-600" />
+                <span className="text-neutral-600 text-xs uppercase tracking-widest font-mono">кибербезопасность</span>
+              </div>
+              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                <h2 className="text-6xl md:text-8xl font-bold tracking-tighter leading-none">
+                  МЕТОДЫ<br /><span className="text-neutral-500">ЗАЩИТЫ</span>
+                </h2>
+                <p className="text-neutral-400 text-sm max-w-xs leading-relaxed md:pb-2">
+                  Эволюция инструментов защиты от простых сигнатур до нейросетевого предсказания атак
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Methods grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 mb-16">
+            {[
+              {
+                num: "01",
+                title: "Сигнатурный анализ",
+                era: "1980-е — наст. время",
+                desc: "Сравнение файлов с базой известных вирусных «отпечатков». Быстро и точно — но бессилен против новых и полиморфных угроз.",
+                level: 40,
+                color: "bg-neutral-600",
+              },
+              {
+                num: "02",
+                title: "Эвристический анализ",
+                era: "1990-е — наст. время",
+                desc: "Оценка кода по подозрительным паттернам поведения. Позволяет ловить неизвестные угрозы, но даёт ложные срабатывания.",
+                level: 62,
+                color: "bg-neutral-400",
+              },
+              {
+                num: "03",
+                title: "Поведенческий анализ",
+                era: "2000-е — наст. время",
+                desc: "Мониторинг программ в реальном времени. HIPS-системы блокируют опасные действия ещё до нанесения ущерба.",
+                level: 75,
+                color: "bg-neutral-200",
+              },
+              {
+                num: "04",
+                title: "Sandbox / Песочница",
+                era: "2010-е — наст. время",
+                desc: "Запуск подозрительных файлов в изолированной среде. Угроза «детонирует» безопасно — под наблюдением аналитиков.",
+                level: 82,
+                color: "bg-red-800",
+              },
+              {
+                num: "05",
+                title: "Облачная защита",
+                era: "2010-е — наст. время",
+                desc: "Проверка файлов через глобальные базы угроз в реальном времени. Миллиарды устройств делятся данными об атаках мгновенно.",
+                level: 88,
+                color: "bg-red-600",
+              },
+              {
+                num: "06",
+                title: "ИИ и машинное обучение",
+                era: "2020-е — наст. время",
+                desc: "Нейросети анализируют миллионы признаков и предсказывают атаки до их начала. Адаптируются быстрее, чем вирусы меняют форму.",
+                level: 97,
+                color: "bg-white",
+              },
+            ].map((method) => (
+              <div key={method.num} className="border-t border-neutral-800 border-l-0 md:border-l md:first:border-l-0 p-6 group hover:bg-neutral-900 transition-colors duration-200 flex flex-col">
+                {/* Top row */}
+                <div className="flex items-start justify-between mb-6">
+                  <span className="text-neutral-700 text-xs font-mono group-hover:text-neutral-500 transition-colors">{method.num}</span>
+                  <span className="text-neutral-600 text-xs uppercase tracking-widest">{method.era}</span>
+                </div>
+                {/* Efficacy bar */}
+                <div className="mb-6">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-neutral-600 text-xs uppercase tracking-widest">Эффективность</span>
+                    <span className="text-xs font-mono text-neutral-400">{method.level}%</span>
+                  </div>
+                  <div className="h-1 bg-neutral-800 w-full">
+                    <div
+                      className={`h-1 ${method.color} transition-all duration-500`}
+                      style={{ width: `${method.level}%` }}
+                    />
+                  </div>
+                </div>
+                {/* Content */}
+                <h3 className="font-bold text-xl tracking-tight mb-3">{method.title}</h3>
+                <p className="text-neutral-400 text-sm leading-relaxed mt-auto">{method.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom comparison strip */}
+          <div className="border-t border-neutral-800 pt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <div className="text-xs uppercase tracking-widest text-neutral-600 mb-2">Уровень угроз</div>
+              <div className="flex items-center gap-3">
+                <div className="h-2 flex-1 bg-neutral-800">
+                  <div className="h-2 bg-red-600" style={{ width: "94%" }} />
+                </div>
+                <span className="text-xs font-mono text-red-600">94%</span>
+              </div>
+            </div>
+            <div>
+              <div className="text-xs uppercase tracking-widest text-neutral-600 mb-2">Уровень защиты</div>
+              <div className="flex items-center gap-3">
+                <div className="h-2 flex-1 bg-neutral-800">
+                  <div className="h-2 bg-white" style={{ width: "78%" }} />
+                </div>
+                <span className="text-xs font-mono text-white">78%</span>
+              </div>
+            </div>
+            <div>
+              <div className="text-xs uppercase tracking-widest text-neutral-600 mb-2">Разрыв</div>
+              <div className="text-2xl font-bold tracking-tighter text-red-600">−16%</div>
+              <div className="text-neutral-600 text-xs mt-1">угрозы опережают защиту</div>
+            </div>
+          </div>
+
         </div>
       </section>
 
