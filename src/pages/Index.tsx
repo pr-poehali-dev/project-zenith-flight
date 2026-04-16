@@ -271,10 +271,10 @@ export default function Index() {
                 Угроза
               </span>
             </div>
-            <div className="col-span-5 px-4">
-              <span className="text-xs uppercase tracking-widest text-neutral-500 flex items-center gap-2">
-                <span className="w-2 h-2 bg-neutral-600 inline-block"></span>
+            <div className="col-span-5 px-4 text-right">
+              <span className="text-xs uppercase tracking-widest text-neutral-500 inline-flex items-center gap-2">
                 Защита
+                <span className="w-2 h-2 bg-neutral-600 inline-block"></span>
               </span>
             </div>
           </div>
@@ -316,10 +316,10 @@ export default function Index() {
                 </div>
 
                 {/* Antivirus column */}
-                <div className={`col-span-5 py-6 px-4 border-l transition-colors duration-200 ${activeYear === item.year ? "border-neutral-600" : "border-neutral-800 group-hover:border-neutral-700"}`}>
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="w-1.5 h-1.5 bg-neutral-600 inline-block flex-shrink-0"></span>
+                <div className={`col-span-5 py-6 px-4 border-l transition-colors duration-200 text-right ${activeYear === item.year ? "border-neutral-600" : "border-neutral-800 group-hover:border-neutral-700"}`}>
+                  <div className="flex items-center justify-end gap-2 mb-2">
                     <div className="text-xs uppercase tracking-widest text-neutral-400">Защита</div>
+                    <span className="w-1.5 h-1.5 bg-neutral-600 inline-block flex-shrink-0"></span>
                   </div>
                   <h3 className="font-bold text-lg mb-2 tracking-tight">{item.antivirus.name}</h3>
                   <p
