@@ -224,15 +224,56 @@ export default function Index() {
       {/* Timeline Section */}
       <section id="timeline" className="py-20 px-4 md:px-8 bg-black text-white">
         <div className="container mx-auto">
-          <div className="flex items-end justify-between mb-12">
-            <h2 className="text-6xl font-bold tracking-tighter">ХРОНОЛОГИЯ</h2>
-            <div className="hidden md:flex gap-8 text-sm uppercase tracking-widest">
-              <span className="flex items-center gap-2">
-                <span className="w-4 h-4 bg-red-600 inline-block"></span>
-                Вирусы
+
+          {/* Section header */}
+          <div className="relative mb-16 overflow-hidden">
+            {/* Background grid */}
+            <div className="absolute inset-0 opacity-5">
+              {[...Array(8)].map((_, i) => (
+                <div key={i} className="absolute top-0 bottom-0 border-l border-white" style={{ left: `${(i + 1) * 100 / 9}%` }} />
+              ))}
+              <div className="absolute left-0 right-0 border-t border-white" style={{ top: "50%" }} />
+            </div>
+            <div className="relative flex items-end justify-between">
+              <div>
+                {/* Corner marks */}
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-4 h-4 border-t-2 border-l-2 border-red-600" />
+                  <span className="text-neutral-600 text-xs uppercase tracking-widest font-mono">1971 — 2024</span>
+                </div>
+                <h2 className="text-6xl md:text-8xl font-bold tracking-tighter leading-none">ХРОНОЛОГИЯ</h2>
+                <div className="flex items-center gap-3 mt-4">
+                  <span className="text-neutral-600 text-xs uppercase tracking-widest font-mono">{timelineData.length} событий</span>
+                  <div className="w-4 h-4 border-b-2 border-r-2 border-red-600" />
+                </div>
+              </div>
+              <div className="hidden md:flex flex-col gap-3 text-sm uppercase tracking-widest pb-2">
+                <span className="flex items-center gap-3">
+                  <span className="w-3 h-3 bg-red-600 inline-block"></span>
+                  Угроза
+                </span>
+                <span className="flex items-center gap-3">
+                  <span className="w-3 h-3 bg-neutral-600 inline-block"></span>
+                  Защита
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Column headers */}
+          <div className="grid grid-cols-12 gap-0 mb-2">
+            <div className="col-span-2 md:col-span-1">
+              <span className="text-xs uppercase tracking-widest text-neutral-600">Год</span>
+            </div>
+            <div className="col-span-5 px-4">
+              <span className="text-xs uppercase tracking-widest text-red-600 flex items-center gap-2">
+                <span className="w-2 h-2 bg-red-600 inline-block"></span>
+                Угроза
               </span>
-              <span className="flex items-center gap-2">
-                <span className="w-4 h-4 bg-white inline-block"></span>
+            </div>
+            <div className="col-span-5 px-4">
+              <span className="text-xs uppercase tracking-widest text-neutral-500 flex items-center gap-2">
+                <span className="w-2 h-2 bg-neutral-600 inline-block"></span>
                 Защита
               </span>
             </div>
@@ -243,19 +284,27 @@ export default function Index() {
             {timelineData.map((item, index) => (
               <div
                 key={item.year}
-                className={`grid grid-cols-12 gap-0 border-t border-neutral-700 cursor-pointer transition-colors duration-200 ${
-                  activeYear === item.year ? "bg-neutral-900" : "hover:bg-neutral-900"
+                className={`grid grid-cols-12 gap-0 border-t cursor-pointer transition-all duration-200 group ${
+                  activeYear === item.year
+                    ? "bg-neutral-900 border-neutral-500"
+                    : "border-neutral-800 hover:border-neutral-600 hover:bg-neutral-900"
                 }`}
                 onClick={() => setActiveYear(activeYear === item.year ? null : item.year)}
               >
                 {/* Year column */}
-                <div className="col-span-2 md:col-span-1 py-6 pr-4 flex items-start">
-                  <span className="text-red-600 font-bold text-xl tracking-tighter">{item.year}</span>
+                <div className="col-span-2 md:col-span-1 py-6 pr-4 flex flex-col items-start justify-between">
+                  <span className="text-red-600 font-bold text-xl tracking-tighter leading-none">{item.year}</span>
+                  <span className="text-neutral-800 text-xs font-mono group-hover:text-neutral-600 transition-colors">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
                 </div>
 
                 {/* Virus column */}
-                <div className="col-span-5 py-6 px-4 border-l border-neutral-700">
-                  <div className="text-xs uppercase tracking-widest text-red-600 mb-2">Угроза</div>
+                <div className={`col-span-5 py-6 px-4 border-l transition-colors duration-200 ${activeYear === item.year ? "border-red-900" : "border-neutral-800 group-hover:border-neutral-700"}`}>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 inline-block flex-shrink-0"></span>
+                    <div className="text-xs uppercase tracking-widest text-red-600">Угроза</div>
+                  </div>
                   <h3 className="font-bold text-lg mb-2 tracking-tight">{item.virus.name}</h3>
                   <p
                     className={`text-neutral-400 text-sm leading-relaxed transition-all duration-300 overflow-hidden ${
@@ -267,8 +316,11 @@ export default function Index() {
                 </div>
 
                 {/* Antivirus column */}
-                <div className="col-span-5 py-6 px-4 border-l border-neutral-700">
-                  <div className="text-xs uppercase tracking-widest text-neutral-400 mb-2">Защита</div>
+                <div className={`col-span-5 py-6 px-4 border-l transition-colors duration-200 ${activeYear === item.year ? "border-neutral-600" : "border-neutral-800 group-hover:border-neutral-700"}`}>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-1.5 h-1.5 bg-neutral-600 inline-block flex-shrink-0"></span>
+                    <div className="text-xs uppercase tracking-widest text-neutral-400">Защита</div>
+                  </div>
                   <h3 className="font-bold text-lg mb-2 tracking-tight">{item.antivirus.name}</h3>
                   <p
                     className={`text-neutral-400 text-sm leading-relaxed transition-all duration-300 overflow-hidden ${
@@ -280,12 +332,14 @@ export default function Index() {
                 </div>
 
                 {/* Expand indicator (mobile) */}
-                <div className="col-span-1 md:hidden py-6 flex items-center justify-center border-l border-neutral-700">
-                  <span className="text-neutral-500 text-xl">{activeYear === item.year ? "−" : "+"}</span>
+                <div className="col-span-1 md:hidden py-6 flex items-center justify-center border-l border-neutral-800">
+                  <span className="text-neutral-600 text-xl group-hover:text-red-600 transition-colors">{activeYear === item.year ? "−" : "+"}</span>
                 </div>
               </div>
             ))}
-            <div className="border-t border-neutral-700"></div>
+            <div className="border-t border-neutral-700 flex justify-end pt-3">
+              <span className="text-neutral-700 text-xs font-mono uppercase tracking-widest">конец хронологии</span>
+            </div>
           </div>
         </div>
       </section>
