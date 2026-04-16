@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Icon from "@/components/ui/icon";
 
 const timelineData = [
   {
@@ -126,6 +127,14 @@ const timelineData = [
 
 export default function Index() {
   const [activeYear, setActiveYear] = useState<string | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { href: "#timeline", label: "Хронология" },
+    { href: "#about", label: "Развитие угроз" },
+    { href: "#defense", label: "Методы защиты" },
+    { href: "#sources", label: "Источники" },
+  ];
 
   return (
     <main className="min-h-screen bg-white font-mono">
@@ -135,20 +144,38 @@ export default function Index() {
           <a href="/" className="text-xl font-bold tracking-tighter">
             VIRUS<span className="text-red-600">LOG</span>
           </a>
-          <div className="flex space-x-8">
-            <a href="#timeline" className="text-sm uppercase tracking-widest hover:text-red-600 transition-colors">
-              Хронология
-            </a>
-            <a href="#about" className="text-sm uppercase tracking-widest hover:text-red-600 transition-colors">
-              Развитие угроз
-            </a>
-            <a href="#defense" className="text-sm uppercase tracking-widest hover:text-red-600 transition-colors">
-              Методы защиты
-            </a>
-            <a href="#sources" className="text-sm uppercase tracking-widest hover:text-red-600 transition-colors">
-              Источники
-            </a>
+          {/* Desktop links */}
+          <div className="hidden md:flex space-x-8">
+            {navLinks.map((link) => (
+              <a key={link.href} href={link.href} className="text-sm uppercase tracking-widest hover:text-red-600 transition-colors">
+                {link.label}
+              </a>
+            ))}
           </div>
+          {/* Burger button */}
+          <button
+            className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5 group"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Меню"
+          >
+            <span className={`block w-6 h-0.5 bg-black transition-all duration-300 origin-center ${mobileMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-black transition-all duration-300 ${mobileMenuOpen ? "opacity-0 scale-x-0" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-black transition-all duration-300 origin-center ${mobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          </button>
+        </div>
+        {/* Mobile dropdown */}
+        <div className={`md:hidden overflow-hidden transition-all duration-300 border-t border-black ${mobileMenuOpen ? "max-h-64" : "max-h-0 border-t-0"}`}>
+          {navLinks.map((link, i) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between px-4 py-4 text-sm uppercase tracking-widest border-b border-black hover:bg-black hover:text-white transition-colors duration-200"
+            >
+              <span>{link.label}</span>
+              <span className="text-neutral-400 text-xs font-mono">{String(i + 1).padStart(2, "0")}</span>
+            </a>
+          ))}
         </div>
       </nav>
 
@@ -420,9 +447,14 @@ export default function Index() {
                 <h2 className="text-6xl md:text-8xl font-bold tracking-tighter leading-none">
                   МЕТОДЫ<br /><span className="text-neutral-500">ЗАЩИТЫ</span>
                 </h2>
-                <p className="text-neutral-400 text-sm max-w-xs leading-relaxed md:pb-2">
-                  Эволюция инструментов защиты от простых сигнатур до нейросетевого предсказания атак
-                </p>
+                <div className="text-neutral-400 text-sm max-w-sm leading-relaxed md:pb-2 space-y-3">
+                  <p>
+                    Защита никогда не была в позиции силы — она всегда реагировала. Каждый новый метод рождался как ответ на конкретную угрозу, которую предыдущий уже не мог сдержать.
+                  </p>
+                  <p className="text-neutral-600">
+                    Сегодня разрыв сокращается: машинное обучение впервые позволяет действовать на опережение — предсказывать атаку до того, как она состоялась.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
