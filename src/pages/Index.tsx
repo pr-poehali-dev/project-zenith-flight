@@ -269,54 +269,50 @@ export default function Index() {
       <section id="about" className="py-20 px-4 md:px-8">
         <div className="container mx-auto">
           <div className="grid grid-cols-12 gap-8">
-            <div className="col-span-12 md:col-span-5">
-              <h2 className="text-6xl font-bold tracking-tighter mb-8">О<br />ПРОЕКТЕ</h2>
-              <div className="aspect-[4/5] bg-black relative mb-8 md:mb-0 flex items-center justify-center">
-                <div className="text-center px-8">
-                  <div className="text-red-600 text-6xl font-bold mb-4">01</div>
-                  <div className="text-white text-sm uppercase tracking-widest">Угроза появляется</div>
-                  <div className="my-6 border-t border-neutral-700 w-16 mx-auto"></div>
-                  <div className="text-white text-6xl font-bold mb-4">02</div>
-                  <div className="text-white text-sm uppercase tracking-widest">Защита адаптируется</div>
-                  <div className="my-6 border-t border-neutral-700 w-16 mx-auto"></div>
-                  <div className="text-red-600 text-6xl font-bold mb-4">03</div>
-                  <div className="text-white text-sm uppercase tracking-widest">Цикл повторяется</div>
+            <div className="col-span-12 md:col-span-4">
+              <h2 className="text-6xl font-bold tracking-tighter mb-8">РАЗВИТИЕ<br />УГРОЗ</h2>
+              <div className="border-t border-black pt-8 space-y-6">
+                <div>
+                  <div className="text-red-600 text-sm uppercase tracking-widest mb-1">1970-е — 1980-е</div>
+                  <div className="font-bold">Эпоха экспериментов</div>
                 </div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 border border-neutral-700 pointer-events-none"></div>
+                <div>
+                  <div className="text-red-600 text-sm uppercase tracking-widest mb-1">1990-е</div>
+                  <div className="font-bold">Эра массовых заражений</div>
+                </div>
+                <div>
+                  <div className="text-red-600 text-sm uppercase tracking-widest mb-1">2000-е</div>
+                  <div className="font-bold">Эпоха киберпреступности</div>
+                </div>
+                <div>
+                  <div className="text-red-600 text-sm uppercase tracking-widest mb-1">2010-е</div>
+                  <div className="font-bold">Государственное кибероружие</div>
+                </div>
+                <div>
+                  <div className="text-red-600 text-sm uppercase tracking-widest mb-1">2020-е</div>
+                  <div className="font-bold">ИИ против ИИ</div>
+                </div>
               </div>
             </div>
-            <div className="col-span-12 md:col-span-7 md:pt-24">
-              <p className="text-xl mb-6">
-                Этот сайт — структурированная история непрекращающейся гонки вооружений в цифровом пространстве. С 1971 года вирусы и средства защиты развивались в параллельном ритме: каждая новая угроза рождала новый метод защиты.
+            <div className="col-span-12 md:col-span-8 md:pt-4">
+              <p className="text-xl mb-8 leading-relaxed">
+                История вредоносных программ начиналась как академический курьёз. В 1971 году программист Боб Томас создал Creeper — не с целью разрушения, а ради самого факта: может ли программа самостоятельно перемещаться между компьютерами? Может. Этот эксперимент открыл ящик Пандоры, который человечество не может закрыть по сей день.
               </p>
-              <p className="mb-6">
-                Мы исследуем не просто технические артефакты, а социальный и экономический контекст каждого события: кто создавал вирусы, зачем, какой ущерб они наносили и как индустрия кибербезопасности отвечала на вызовы своего времени.
+              <p className="mb-6 leading-relaxed">
+                В 1980-е вирусы стали оружием мелкого хулиганства и пиратской борьбы. Brain (1986) братья Альви написали для защиты своего ПО от копирования — первый коммерческий мотив в истории вредоносного кода. Дискеты были единственным вектором распространения, что сдерживало масштаб ущерба.
               </p>
-              <p className="mb-6">
-                От студенческих экспериментов до государственного кибероружия — эволюция угроз отражает эволюцию самого общества в эпоху цифровых технологий.
+              <p className="mb-6 leading-relaxed">
+                Интернет изменил всё. Червь Морриса (1988) наглядно показал, насколько хрупкой может быть сетевая инфраструктура. 1990-е принесли первые глобальные эпидемии: Melissa и ILOVEYOU распространялись со скоростью, которую никто не мог предвидеть. Антивирусная индустрия рождалась в режиме постоянного пожара.
               </p>
-              <div className="grid grid-cols-2 gap-4 mt-12">
-                <div>
-                  <h3 className="text-sm uppercase tracking-widest mb-4 text-red-600">Типы угроз</h3>
-                  <ul className="space-y-2 text-sm">
-                    <li>Вирусы и черви</li>
-                    <li>Трояны и руткиты</li>
-                    <li>Программы-вымогатели</li>
-                    <li>Кибероружие</li>
-                    <li>ИИ-угрозы</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-sm uppercase tracking-widest mb-4">Методы защиты</h3>
-                  <ul className="space-y-2 text-sm">
-                    <li>Сигнатурный анализ</li>
-                    <li>Эвристика</li>
-                    <li>Поведенческий анализ</li>
-                    <li>Sandbox-изоляция</li>
-                    <li>ИИ-детектирование</li>
-                  </ul>
-                </div>
-              </div>
+              <p className="mb-6 leading-relaxed">
+                В 2000-е годы вирусописательство превратилось в бизнес. Ботнеты сдавались в аренду, банковские трояны крали миллиарды, спам-рассылки стали индустрией. Киберпреступность обрела организованный, транснациональный характер. Антивирусы ответили поведенческим анализом и облачными базами данных угроз.
+              </p>
+              <p className="mb-6 leading-relaxed">
+                Stuxnet (2010) перевернул представления о возможном: впервые вредоносная программа уничтожила физическое оборудование — иранские ядерные центрифуги. Кибератаки стали инструментом геополитики. WannaCry и NotPetya (2017) парализовали целые отрасли экономики в десятках стран одновременно.
+              </p>
+              <p className="leading-relaxed">
+                Сегодня мы стоим на пороге новой эпохи: искусственный интеллект используется обеими сторонами. ИИ генерирует полиморфный код, который меняет себя быстрее, чем успевают обновляться сигнатурные базы. ИИ-антивирусы учатся предсказывать атаки до их начала. Гонка вооружений продолжается — теперь со скоростью нейронных сетей.
+              </p>
             </div>
           </div>
         </div>
@@ -362,50 +358,23 @@ export default function Index() {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col justify-between">
-              <div>
-                <h3 className="text-sm uppercase tracking-widest mb-6">Хотите дополнить хронологию?</h3>
-                <form className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm uppercase tracking-widest mb-2">
-                      Имя
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      className="w-full bg-transparent border-b-2 border-white py-2 px-0 focus:outline-none focus:border-black placeholder-white/50"
-                      placeholder="Ваше имя"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm uppercase tracking-widest mb-2">
-                      Почта
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      className="w-full bg-transparent border-b-2 border-white py-2 px-0 focus:outline-none focus:border-black placeholder-white/50"
-                      placeholder="email@example.com"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm uppercase tracking-widest mb-2">
-                      Сообщение
-                    </label>
-                    <textarea
-                      id="message"
-                      rows={4}
-                      className="w-full bg-transparent border-b-2 border-white py-2 px-0 focus:outline-none focus:border-black placeholder-white/50 resize-none"
-                      placeholder="Опишите вирус или антивирус, который стоит добавить..."
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full bg-white text-red-600 py-4 text-sm uppercase tracking-widest font-bold hover:bg-black hover:text-white transition-colors duration-300"
-                  >
-                    Отправить
-                  </button>
-                </form>
+            <div className="flex flex-col justify-center">
+              <div className="border-t border-red-500 pt-8 space-y-8">
+                <div>
+                  <div className="text-red-200 text-sm uppercase tracking-widest mb-2">Дополнительно</div>
+                  <div className="font-bold text-xl mb-3">Malware Museum</div>
+                  <div className="text-red-200 text-sm leading-relaxed">Интерактивный архив исторических вирусов в браузере — archive.org/details/malwaremuseum</div>
+                </div>
+                <div className="border-t border-red-500 pt-8">
+                  <div className="text-red-200 text-sm uppercase tracking-widest mb-2">Дополнительно</div>
+                  <div className="font-bold text-xl mb-3">AV-TEST Institute</div>
+                  <div className="text-red-200 text-sm leading-relaxed">Независимое тестирование антивирусных продуктов и статистика угроз — av-test.org</div>
+                </div>
+                <div className="border-t border-red-500 pt-8">
+                  <div className="text-red-200 text-sm uppercase tracking-widest mb-2">Дополнительно</div>
+                  <div className="font-bold text-xl mb-3">CVE Database</div>
+                  <div className="text-red-200 text-sm leading-relaxed">Официальная база уязвимостей и угроз — cve.mitre.org</div>
+                </div>
               </div>
             </div>
           </div>
