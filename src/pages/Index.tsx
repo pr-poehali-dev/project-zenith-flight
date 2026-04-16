@@ -387,7 +387,7 @@ export default function Index() {
           <span className="font-bold tracking-tighter">
             VIRUS<span className="text-red-600">LOG</span>
           </span>
-          <span className="text-sm text-neutral-400 uppercase tracking-widest">История компьютерных вирусов © 2024</span>
+          <span className="text-sm text-neutral-400 uppercase tracking-widest">История компьютерных вирусов © 2026</span>
         </div>
       </footer>
     </main>
