@@ -166,10 +166,35 @@ export default function Index() {
           </div>
           <div className="col-span-12 md:col-span-5 flex items-end justify-center">
             <div className="relative w-full aspect-square">
-              <div className="absolute inset-0 bg-black flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-red-600 text-8xl font-bold leading-none">53</div>
-                  <div className="text-white text-sm uppercase tracking-widest mt-2">года истории</div>
+              <div className="absolute inset-0 bg-black flex items-center justify-center overflow-hidden">
+                {/* Grid lines decoration */}
+                <div className="absolute inset-0 opacity-10">
+                  {[...Array(6)].map((_, i) => (
+                    <div key={i} className="absolute top-0 bottom-0 border-l border-white" style={{ left: `${(i + 1) * 100 / 7}%` }} />
+                  ))}
+                  {[...Array(6)].map((_, i) => (
+                    <div key={i} className="absolute left-0 right-0 border-t border-white" style={{ top: `${(i + 1) * 100 / 7}%` }} />
+                  ))}
+                </div>
+                {/* Corner marks */}
+                <div className="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-red-600" />
+                <div className="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-red-600" />
+                <div className="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-red-600" />
+                <div className="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-red-600" />
+                {/* Main content */}
+                <div className="text-center relative z-10">
+                  <div className="text-red-600 text-[9rem] font-bold leading-none tracking-tighter">53</div>
+                  <div className="text-white text-base uppercase tracking-[0.3em] mt-3">года истории</div>
+                  <div className="mt-6 flex justify-center gap-2">
+                    {["1971", "1988", "2000", "2010", "2024"].map((y) => (
+                      <span key={y} className="text-neutral-600 text-xs font-mono">{y}</span>
+                    ))}
+                  </div>
+                  <div className="mt-2 flex justify-center gap-2">
+                    {["1971", "1988", "2000", "2010", "2024"].map((_, i) => (
+                      <span key={i} className={`w-2 h-2 inline-block ${i % 2 === 0 ? "bg-red-600" : "bg-neutral-700"}`} />
+                    ))}
+                  </div>
                 </div>
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-red-600 flex items-center justify-center">
